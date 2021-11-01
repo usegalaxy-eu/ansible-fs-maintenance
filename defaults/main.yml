@@ -16,7 +16,7 @@ fsm_intervals:
 
 fsm_scripts:
   temporary_dirs:
-    enable: False
+    enable: True
     src: 'temporary_dirs.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/temporary_dirs.sh"
     user: "{{ fsm_galaxy_user.username }}"
@@ -24,7 +24,7 @@ fsm_scripts:
     paths: []
     time: "{{ fsm_intervals.long }}"
   upload_dirs:
-    enable: False
+    enable: True
     src: 'uploads.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/uploads.sh"
     user: "{{ fsm_galaxy_user.username }}"
@@ -32,7 +32,7 @@ fsm_scripts:
     paths: []
     time: "{{ fsm_intervals.medium }}"
   job_working_dirs:
-    enable: False
+    enable: True
     src: 'job_working_dir.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/job_working_dir.sh"
     user: "{{ fsm_galaxy_user.username }}"
