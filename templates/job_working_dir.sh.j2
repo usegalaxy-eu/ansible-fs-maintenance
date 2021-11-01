@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for dir in "{{ fsm_scripts.job_working_dirs.path }}"/*/; do
+    dir=${dir%*/}      # remove the trailing "/"
+    echo "Cleaning $dir"
+    if [[ $dir == *"_cleared_contents"* ]]; then
+        tmpwatch -v -a --mtime --dirmtime {{ fsm_intervals.short }} "$dir"
+    else
+        tmpwatch -v -a --mtime --dirmtime {{ fsm_scripts.job_working_dirs.time }} "$dir"
+    fi
+done;
