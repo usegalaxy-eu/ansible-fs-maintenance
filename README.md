@@ -1,7 +1,7 @@
 ansible-fs-maintenance
 =======
 
-Ansible role for deploying and configuring some common Galaxy file system maintenance routines in a Redhat/CentOS system.
+Ansible role for deploying and configuring some common Galaxy file system maintenance routines in a RedHat/CentOS system.
 
 Requirements
 ------------

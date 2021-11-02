@@ -2,7 +2,6 @@
 # Some flags to know if jobs are running or not
 job_working_dir_flag=`condor_q -autoformat Cmd |grep job_working_dir.sh |wc -l`
 uploads_flag=`condor_q -autoformat Cmd |grep uploads.sh |wc -l`
-new_file_path_flag=`condor_q -autoformat Cmd |grep new_file_path.sh |wc -l`
 temporary_dirs_flag=`condor_q -autoformat Cmd |grep temporary_dirs.sh |wc -l`
 
 
