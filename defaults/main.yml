@@ -16,7 +16,7 @@ fsm_intervals:
 
 fsm_scripts:
   temporary_dirs:
-    enable: True
+    enable: False
     src: 'temporary_dirs.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/temporary_dirs.sh"
     user: "{{ fsm_galaxy_user.username }}"
@@ -24,7 +24,7 @@ fsm_scripts:
     paths: []
     time: "{{ fsm_intervals.long }}"
   upload_dirs:
-    enable: True
+    enable: False
     src: 'uploads.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/uploads.sh"
     user: "{{ fsm_galaxy_user.username }}"
@@ -32,7 +32,7 @@ fsm_scripts:
     paths: []
     time: "{{ fsm_intervals.medium }}"
   job_working_dirs:
-    enable: True
+    enable: False
     src: 'job_working_dir.sh.j2'
     dst: "{{ fsm_maintenance_dir }}/job_working_dir.sh"
     user: "{{ fsm_galaxy_user.username }}"
@@ -42,7 +42,7 @@ fsm_scripts:
 
 fsm_cron_tasks:
   docker:
-    enable: True
+    enable: False
     name: "Docker clean up"
     minute: 30
     hour: 2
@@ -52,7 +52,7 @@ fsm_cron_tasks:
     job: "docker system prune -f > /dev/null"
     user: "{{ fsm_galaxy_user.username }}"
   gxadmin:
-    enable: True
+    enable: False
     name: "Gxadmin Galaxy clean up"
     minute: 0
     hour: "*/6"
