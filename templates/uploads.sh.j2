@@ -1,2 +1,4 @@
 #!/bin/bash
-tmpwatch -v -a --mtime --dirmtime {{ fsm_scripts.upload_dirs.time }} {{ fsm_scripts.upload_dirs.paths | join(' ') }}
+{% for dir in fsm_scripts.upload_dirs.paths %}
+tmpwatch -v -a --mtime --dirmtime {{ fsm_scripts.upload_dirs.time }} {{ dir }}
+{% endfor %}
