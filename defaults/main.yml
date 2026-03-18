@@ -40,27 +40,7 @@ fsm_scripts:
     paths: []
     time: "{{ fsm_intervals.long }}"
 
-fsm_cron_tasks:
-  docker:
-    enable: False
-    name: "Docker clean up"
-    minute: 30
-    hour: 2
-    dom: "*"
-    month: "*"
-    dow: "*"
-    job: "docker system prune -f > /dev/null"
-    user: "{{ fsm_galaxy_user.username }}"
-  gxadmin:
-    enable: False
-    name: "Gxadmin Galaxy clean up"
-    minute: 0
-    hour: "*/6"
-    dom: "*"
-    month: "*"
-    dow: "*"
-    job: "/usr/bin/gxadmin galaxy cleanup 60"
-    user: "{{ fsm_galaxy_user.username }}"
+fsm_cron_tasks: {}
 
 fsm_htcondor_enable: False
 
