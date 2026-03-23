@@ -1,5 +1,5 @@
 ---
-- name: Add maintenance tasks to cron
+- name: Add maintenance tasks to cron (loop)
   ansible.builtin.cron:
     name: "{{ item.value.name }}"
     minute: "{{ item.value.minute }}"
