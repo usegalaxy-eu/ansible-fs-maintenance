@@ -11,6 +11,7 @@
     - "{{ fsm_htcondor_job_files.temporary_dirs }}"
     - "{{ fsm_htcondor_job_files.upload_dirs }}"
     - "{{ fsm_htcondor_job_files.job_working_dirs }}"
+    - "{{ fsm_htcondor_job_files.s3_cache_dirs }}"
   when: "fsm_htcondor_enable | bool"
 
 - name: Deploy HTCondor submitter

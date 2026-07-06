@@ -1,0 +1,4 @@
+#!/bin/bash
+{% for dir in fsm_scripts.s3_cache_dirs.paths %}
+tmpwatch -v -a --mtime --dirmtime {{ fsm_scripts.s3_cache_dirs.time }} {{ dir }}
+{% endfor %}

@@ -3,6 +3,7 @@
 job_working_dir_flag=`condor_q -autoformat Cmd |grep job_working_dir.sh |wc -l`
 uploads_flag=`condor_q -autoformat Cmd |grep uploads.sh |wc -l`
 temporary_dirs_flag=`condor_q -autoformat Cmd |grep temporary_dirs.sh |wc -l`
+s3_cache_dirs_flag=`condor_q -autoformat Cmd |grep s3_cache_dirs.sh |wc -l`
 
 
 if [ "$job_working_dir_flag" -eq "0" ]; then
@@ -15,4 +16,8 @@ fi
 
 if [ "$temporary_dirs_flag" -eq "0" ]; then
    condor_submit {{ fsm_maintenance_dir }}/temporary_dirs.job
+fi
+
+if [ "$s3_cache_dirs_flag" -eq "0" ]; then
+   condor_submit {{ fsm_maintenance_dir }}/s3_cache_dirs.job
 fi

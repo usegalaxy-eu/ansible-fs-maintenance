@@ -13,6 +13,7 @@ fsm_intervals:
   short: "3d"
   medium: "7d"
   long: "31d"
+  s3_cache: "15d"
 
 fsm_scripts:
   temporary_dirs:
@@ -39,6 +40,14 @@ fsm_scripts:
     group: "{{ fsm_galaxy_user.groupname }}"
     paths: []
     time: "{{ fsm_intervals.long }}"
+  s3_cache_dirs:
+    enable: False
+    src: 's3_cache_dirs.sh.j2'
+    dst: "{{ fsm_maintenance_dir }}/s3_cache_dirs.sh"
+    user: "{{ fsm_galaxy_user.username }}"
+    group: "{{ fsm_galaxy_user.groupname }}"
+    paths: []
+    time: "{{ fsm_intervals.s3_cache }}"
 
 fsm_cron_tasks:
   docker:
@@ -84,6 +93,11 @@ fsm_htcondor_job_files:
   job_working_dirs:
     src: "job_working_dir.job.j2"
     dst: "{{ fsm_maintenance_dir }}/job_working_dir.job"
+    user: "{{ fsm_galaxy_user.username }}"
+    group: "{{ fsm_galaxy_user.groupname }}"
+  s3_cache_dirs:
+    src: "s3_cache_dirs.job.j2"
+    dst: "{{ fsm_maintenance_dir }}/s3_cache_dirs.job"
     user: "{{ fsm_galaxy_user.username }}"
     group: "{{ fsm_galaxy_user.groupname }}"
 

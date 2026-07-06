@@ -1,0 +1,7 @@
+Universe = local
+Executable = {{ fsm_maintenance_dir }}/s3_cache_dirs.sh
+Log = {{ fsm_maintenance_dir }}/maintenance_s3_cache_dirs.$(process).log
+Output = {{ fsm_maintenance_dir }}/maintenance_s3_cache_dirs.$(process).out
+Error = {{ fsm_maintenance_dir }}/maintenance_s3_cache_dirs.$(process).err
+request_cpus = 1
+Queue
